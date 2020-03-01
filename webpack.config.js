@@ -3,7 +3,7 @@ const isDevelopment = process.env.NODE_ENV === "development";
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: ["@babel/polyfill", "./src/index.js"],
   module: {
     rules: [
       {
@@ -53,6 +53,13 @@ module.exports = {
             }
           }
         ]
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/,
+        loader: "file-loader",
+        options: {
+          name: "assets/images/[name].[ext]"
+        }
       }
     ]
   },

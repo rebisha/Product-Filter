@@ -1,0 +1,19 @@
+.form {
+    align-items: center;
+    background-color: #c4e1fa;
+    display: flex;
+    margin: 10px 70px;
+    justify-content: space-between;
+    padding: 0 10px;
+
+    &-dropdown {
+        height: fit-content;
+        border-radius: 4px;
+        width: 130px;
+    }
+
+    &-label {
+        margin: 12px 0;
+        font-family: sans-serif;
+    }
+}
