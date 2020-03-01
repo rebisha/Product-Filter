@@ -1,14 +1,12 @@
 import React from "react";
 import "./_card.scss";
 
-import imgSrc from "../../assets/images/product-8.jpg";
-
 const Card = ({ id, name, image, price, isSale, isExclusive }) => {
   return (
     <div className="card" id={id}>
       <img
         className="card-img"
-        src={`../../assets/images/${image}`}
+        src={require(`../../assets/images/${image}`)}
         alt="products"
       />
       {isSale ? <span className="card-feature sale">Sale</span> : " "}

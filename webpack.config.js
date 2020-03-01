@@ -56,9 +56,9 @@ module.exports = {
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/,
-        loader: "file-loader",
+        loader: "file-loader?name=assets/images/[name].[ext]",
         options: {
-          name: "assets/images/[name].[ext]"
+          esModule: false
         }
       }
     ]

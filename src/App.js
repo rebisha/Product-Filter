@@ -14,8 +14,7 @@ const App = () => {
   useEffect(() => {
     const fetchProduct = () => {
       try {
-        const res = fetch("https://api.jsonbin.io/b/5cae9a54fb42337645ebcad3");
-
+        var res = fetch("https://api.jsonbin.io/b/5cae9a54fb42337645ebcad3");
         res
           .then(response => response.json())
           .then(response => setProducts(response));
@@ -31,7 +30,6 @@ const App = () => {
   const handleChange = e => {
     setSizeFilter(e.target.value);
   };
-  console.log("@@ sizeFilter", sizeFilter);
 
   return (
     <div className="container">
@@ -42,8 +40,7 @@ const App = () => {
       />
       <div className="row">
         {products.map(item => {
-          console.log(JSON.stringify(item.size));
-          if (JSON.stringify(item.size).indexOf(sizeFilter) <= 0) {
+          if (JSON.stringify(item.size).indexOf(sizeFilter) <= 1) {
             return (
               <Card
                 id={item.index}
