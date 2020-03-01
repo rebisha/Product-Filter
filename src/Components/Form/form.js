@@ -1,4 +1,5 @@
 import React from "react";
+
 import "./_form.scss";
 
 const Form = ({ sizeFilter, onChange }) => {

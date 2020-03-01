@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 // components
 import Card from "./Components/Card/card";
@@ -34,9 +34,9 @@ const App = () => {
   return (
     <div className="container">
       <Form
+        onChange={handleChange}
         product={products}
         sizeFilter={sizeFilter}
-        onChange={handleChange}
       />
       <div className="row">
         {products.map(item => {
@@ -44,11 +44,11 @@ const App = () => {
             return (
               <Card
                 id={item.index}
-                name={item.productName}
                 image={item.productImage}
-                price={item.price}
-                isSale={item.isSale}
                 isExclusive={item.isExclusive}
+                isSale={item.isSale}
+                name={item.productName}
+                price={item.price}
               />
             );
           }

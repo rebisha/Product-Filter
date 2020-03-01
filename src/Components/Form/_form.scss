@@ -2,18 +2,18 @@
     align-items: center;
     background-color: #c4e1fa;
     display: flex;
-    margin: 10px 70px;
     justify-content: space-between;
+    margin: 10px 70px;
     padding: 0 10px;
 
     &-dropdown {
-        height: fit-content;
         border-radius: 4px;
+        height: fit-content;
         width: 130px;
     }
 
     &-label {
-        margin: 12px 0;
         font-family: sans-serif;
+        margin: 12px 0;
     }
 }
