@@ -1,0 +1,26 @@
+@import '../../assets/styles/mixins';
+@import '../../assets/styles/variables';
+
+
+.form {
+    min-width: 95.5%;
+    font-size: rem(24px);
+    align-items: center;
+    background-color: $ice-blue;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+
+    &-dropdown {
+        position: relative;
+        border-radius: rem(4px);
+        height: fit-content;
+        width: rem(130px);
+    }
+
+    .title {
+        font-family: $font-family;
+        font-size: map-get($font-sizes, extra-large);
+        margin: 12px 0;
+    }
+}

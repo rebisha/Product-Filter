@@ -1,61 +1,49 @@
-import React, { useState, useEffect } from "react";
-
+// global modules
+import React, { useState } from "react";
+import { connect } from "react-redux";
+import { array } from "prop-types";
 // components
-import Card from "./Components/Card/card";
-import Form from "./Components/Form/form";
-
+import Card from "./Components/Card/Card";
+import Form from "./Components/Form/Form";
+// redux
+import { selectProductItem } from "./Redux/Product/selector";
+// styles
 import "./App.scss";
 
-const App = () => {
-  const [products, setProducts] = useState([]);
-  const [isFetching, setIsFetching] = useState(false);
-  const [sizeFilter, setSizeFilter] = useState();
-
-  useEffect(() => {
-    const fetchProduct = () => {
-      try {
-        var res = fetch("https://api.jsonbin.io/b/5cae9a54fb42337645ebcad3");
-        res
-          .then(response => response.json())
-          .then(response => setProducts(response));
-      } catch (e) {
-        console.log(e);
-        setIsFetching(e);
-      }
-    };
-
-    fetchProduct();
-  }, []);
+const App = ({ products }) => {
+  const [sizeFilter, setSizeFilter] = useState("");
 
   const handleChange = e => {
     setSizeFilter(e.target.value);
   };
 
+  const cardWithoutFilter = products.map(({ index, ...productProps }) => (
+    <Card key={index} {...productProps} />
+  ));
+
+  const cardWithFilter = products
+    .filter(item => item.size.includes(sizeFilter))
+    .map(({ index, ...productProps }) => {
+      return <Card key={index} {...productProps} />;
+    });
+
   return (
     <div className="container">
-      <Form
-        onChange={handleChange}
-        product={products}
-        sizeFilter={sizeFilter}
-      />
+      <Form onChange={handleChange} />
+
       <div className="row">
-        {products.map(item => {
-          if (JSON.stringify(item.size).indexOf(sizeFilter) <= 1) {
-            return (
-              <Card
-                id={item.index}
-                image={item.productImage}
-                isExclusive={item.isExclusive}
-                isSale={item.isSale}
-                name={item.productName}
-                price={item.price}
-              />
-            );
-          }
-        })}
+        {sizeFilter ? cardWithFilter : cardWithoutFilter}
       </div>
     </div>
   );
 };
 
-export default App;
+App.propTypes = {
+  products: array
+};
+
+const mapStateToProps = state => ({
+  products: selectProductItem(state)
+});
+
+export default connect(mapStateToProps)(App);

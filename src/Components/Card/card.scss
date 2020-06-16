@@ -1,0 +1,65 @@
+@import '../../assets/styles/mixins';
+@import '../../assets/styles/variables';
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card-wrapper {
+    min-width: 24%;
+    height: rem(400px);
+    border: 1px solid $grey;
+}
+
+.card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    &-body {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: rem(10px);
+        color: $black;
+        position: absolute;
+        bottom: 0;
+        min-width: 92%;
+    }
+
+    .title {
+        font-family: $font-family;
+        font-size: map-get($font-sizes, large);
+        margin: 0 0 5px;
+    }
+
+    .price {
+        font-size: map-get($font-sizes, extra-large);
+        margin-left: rem(5px);
+    }
+
+    &-img {
+        object-fit: contain;
+    }
+
+    &-feature {
+        color: $white;
+        font-family: $font-family;
+        font-size: rem(14px);
+        letter-spacing: 1;
+        margin-left: rem(10px);
+        padding: rem(15px);
+        width: min-content;
+
+        &.sale {
+            background-color: $red;
+        }
+
+        &.exclusive {
+            background-color: $light-green;
+        }
+    }
+}

@@ -1,0 +1,9 @@
+@function rem($pixel, $context: 16px) {
+    @return ($pixel / $context) * 1em;
+}
+
+@mixin row {
+    font-size: inherit;
+}
+
+$font-sizes: (tiny: 8px, small: 11px, medium: 13px, large: 18px, extra-large: 24px); // map type variable
