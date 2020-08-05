@@ -10,7 +10,7 @@ const Form = ({ onChange }) => {
   return (
     <div className="row">
       <form className="form">
-        <Heading>Women`&apos;`s Top</Heading>
+        <Heading>Women&apos;s Top</Heading>
         <select className="form-dropdown" id="sizes" onChange={onChange}>
           <option value="">Filter by size</option>
           <option value="XS">XS</option>
